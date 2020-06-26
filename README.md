@@ -1,29 +1,50 @@
-# demo_vue_ui
+# semantic_vue_ui
 
-## Project setup
-```
-npm install
-```
+依赖于semantic-ui中的样式来开发的一套vue的公共组件。
+仅供学习使用哈。
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+# 安装
 
-### Run your tests
+安装两个包：
+
+- demo-ui-93
+- semantic-ui-css
+
 ```
-npm run test
+npm i semantic_vue_ui
 ```
 
-### Lints and fixes files
-```
-npm run lint
+# 引入
+
+在main.js中
+
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+// 引入组件
+import UI from 'semantic_vue_ui'
+// 引入样式
+import "semantic_vue_ui/lib/semantic_vue_ui.css"
+
+Vue.use(UI)
+```
+
+# 使用
+
+##  my-headline
+
+```
+<my-headline>标题</my-headline>
+```
+
+##  my-button
+
+```
+<my-button>按钮</my-button>
+```
+
+##  my-divider
+
+##  my-slider
+
+##  my-dialog
