@@ -5,7 +5,7 @@
       <router-link to='/button'>按钮</router-link> |
       <router-link to='/dialog'>对话框</router-link> |
       <router-link to='/tabs'>tabs</router-link> |
-      <router-link to='/slider'>轮播图</router-link>
+      <router-link to='/slider'>轮播图</router-link> |
       <router-link to='/timeline'>时间轴</router-link>
     </div>
     <router-view></router-view>
