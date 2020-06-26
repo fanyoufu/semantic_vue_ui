@@ -16,6 +16,8 @@ export default new VueRouter({
         { name: 'tabs', path: '/tabs', component: Tab },
         { name: 'slider', path: '/slider', component: Slider },
         { name: 'dialog', path: '/dialog', component: Dialog },
-        { name: 'timeline', path: '/timeline', component: () => import ('../pages/timeline.vue') }
+        
+        { name: 'timeline', path: '/timeline', component: () => import ('../pages/timeline.vue') },
+        { name: 'progressBar', path: '/progressBar', component: () => import ('../pages/progressBar.vue') }
     ]
 });

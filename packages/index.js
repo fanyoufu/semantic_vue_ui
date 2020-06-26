@@ -6,6 +6,7 @@ import Headline from "./headline/index.js"
 import Tabs from "./tabs/index.js"
 import Tab from "./tabs/tab.vue"
 import TimeLine from "./timeline/timeline.vue"
+import Progressbar from "./progressBar/progressBar.vue"
 
 import 'semantic-ui-css/semantic.css';
 
@@ -17,7 +18,8 @@ const components = [
     Headline,
     Tabs,
     Tab,
-    TimeLine
+    TimeLine,
+    Progressbar
 ]
 
 const install = (Vue) => {
@@ -34,5 +36,6 @@ export default {
     Slider,
     Headline,
     Tabs,
-    TimeLine
+    TimeLine,
+    Progressbar
 }

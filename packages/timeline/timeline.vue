@@ -1,24 +1,32 @@
 <template>
   <div class='timeline'>
-      <dl>
-          <template  v-for="item in list">
-            <dt :key="item.dateTime">{{item.dateTime}}</dt>
-            <template v-if="item.events && item.events.length">
-                <dd v-for="(event ) in item.events" :key="event.atitle">
-                    <template v-if="event.ahref">
-                        <a :href="event.ahref">{{event.atitle}}</a>
-                    </template>
-                    <template v-else>
-                        {{event.atitle}}
-                    </template>
-                </dd>
-            </template>
-          </template>
-      </dl>
+      
+        <transition-group appear
+            tag="ul"
+            v-bind:css="false"
+            v-on:before-enter="beforeEnter"
+            v-on:enter="enter"
+        >
+            <li v-for="(item,index) in list" :data-index="index" :key="index">
+                <h4 >{{item.dateTime}}</h4>
+                <!-- <div v-if="item.events && item.events.length"> -->
+                    <p v-for="(event ) in item.events" :key="event.atitle">
+                        <template v-if="event.ahref">
+                            <a :href="event.ahref">{{event.atitle}}</a>
+                        </template>
+                        <template v-else>
+                            {{event.atitle}}
+                        </template>
+                    </p>
+                <!-- </div> -->
+            </li>
+        </transition-group>
+      
   </div>
 </template>
 
 <script>
+import anime from 'animejs/lib/anime.es.js'
 export default {
     name: 'MyTimeline',
     props: {
@@ -29,17 +37,35 @@ export default {
     },
     data () {
         return { }
+    },
+    methods: {
+        beforeEnter: function (el) {
+            el.style.opacity = 0
+            el.style.transform = "translate(20px, 0px)"
+        },
+        enter: function (el, done) {
+            const delay = el.dataset.index * 200
+            setTimeout(function () {
+                anime({
+                    targets: el,
+                    opacity: 1,
+                    translateX: -20,
+                    easing: 'easeInOutQuad',
+                    duration: 500,
+                    complete: done
+                })
+            }, delay)
+        }
     }
 }
 </script>
 
 <style scoped lang='less'>
 .timeline{
-    dl,dt,dd {margin:0;padding:0;}
-    dd {line-height: 1.8;}
-    dt{
+    ul,li,h4 {margin:0;padding:0; list-style: none;}
+    p {line-height: 1.8;}
+    li{
         padding-left:1em; position: relative;
-        
         &:after{
             content: '';
             width: 10px;
